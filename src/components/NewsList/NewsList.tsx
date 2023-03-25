@@ -7,9 +7,9 @@ import {
   ListItemText,
   Typography,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { NewsItem } from "../../types/types";
 import { durationFromPostingTime } from "../../utils/utils";
+
 import styles from "./NewsList.module.less";
 
 export function NewsList({

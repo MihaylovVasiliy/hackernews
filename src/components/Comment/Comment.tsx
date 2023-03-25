@@ -1,17 +1,9 @@
-import {
-  Box,
-  Button,
-  List,
-  ListItem,
-  makeStyles,
-  Theme,
-  Typography,
-} from "@material-ui/core";
-import { FC, useState } from "react";
-import { NewsItem } from "../../types/types";
+import { Box, List, ListItem, Typography } from "@material-ui/core";
+import { useState } from "react";
+import { NewsComment, NewsItem } from "../../types/types";
 import cn from "classnames";
 import { durationFromPostingTime, removeHtmlSymbols } from "../../utils/utils";
-import { NewsComment } from "./types";
+
 import styles from "./Comments.module.less";
 
 interface CommentProps {
@@ -19,16 +11,10 @@ interface CommentProps {
   level: number;
 }
 
-interface CommentsStyleProps {
-  isVisible: boolean;
-}
-
-const Comment: React.FC<CommentProps> = ({ comment, level }) => {
+const Comment = ({ comment, level }: CommentProps) => {
   const [isVisible, setVisible] = useState(false);
 
   const handleChangeCommentsTreeVisibility = () => {
-    console.log("isVis", isVisible);
-
     setVisible(!isVisible);
   };
 

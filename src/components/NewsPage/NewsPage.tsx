@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
   Container,
   Typography,
   CircularProgress,
   Button,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { getNewsItem, getTopStories } from "../../utils/utils";
 import { NewsItem } from "../../types/types";
 import { NewsList } from "../NewsList/NewsList";
 import useThrottle from "../../hooks/useThrottle";
+
 import styles from "./NewsPAge.module.less";
 
 function NewsPage() {

@@ -6,22 +6,18 @@ import {
   CircularProgress,
   Box,
   List,
-  ListItem,
   Grid,
   Button,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { NewsItem } from "../../types/types";
 import {
   durationFromPostingTime,
   getNewsItem,
   removeHtmlSymbols,
 } from "../../utils/utils";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { format } from "date-fns";
-import { NewsComment } from "../Comment/types";
 import Comment from "../Comment/Comment";
 import useThrottle from "../../hooks/useThrottle";
+
 import styles from "./NewsDetailPage.module.less";
 
 function NewsDetailPage() {
