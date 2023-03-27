@@ -1,6 +1,5 @@
 import { format, formatDistanceToNow } from "date-fns";
-import { NewsComment } from "../components/Comment/types";
-import { NewsItem } from "../types/types";
+import { NewsComment, NewsItem } from "../types/types";
 
 export async function getTopStories(): Promise<number[]> {
   const response = await fetch(
@@ -38,30 +37,6 @@ export async function getNewsItem({id, hasToFetchComments}: {id: number, hasToFe
     comments,
   };
 }
-
-// async function getComment(id: number) {
-//   const response = await fetch(
-//     `https://hacker-news.firebaseio.com/v0/item/${id}.json`
-//   );
-//   const data = await response.json();
-
-//   const { by, time, text, kids } = data;
-
-//   let children: NewsComment[] = [];
-//   if (kids) {
-//     const commentPromises = kids.map((kid: number) => getComment(kid));
-//     children = await Promise.all(commentPromises);
-//   }
-
-//   return {
-//     id,
-//     by,
-//     time,
-//     text,
-//     kids,
-//     parent: data.parent,
-//   };
-// }
 
 export const durationFromPostingTime = (
   timestamp: number
