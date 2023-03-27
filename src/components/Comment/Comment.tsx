@@ -1,8 +1,8 @@
 import { Box, List, ListItem, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { NewsComment, NewsItem } from "../../types/types";
-import cn from "classnames";
 import { durationFromPostingTime, removeHtmlSymbols } from "../../utils/utils";
+import cn from "classnames";
 
 import styles from "./Comments.module.less";
 
@@ -36,7 +36,10 @@ const Comment = ({ comment, level }: CommentProps) => {
       </Box>
 
       {comment.kids && (
-        <Typography variant="body2" className={styles.mark}>
+        <Typography
+          variant="body2"
+          className={cn(styles.mark, { [styles.opened]: isVisible })}
+        >
           ▶
         </Typography>
       )}
