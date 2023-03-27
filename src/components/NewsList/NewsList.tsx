@@ -11,6 +11,7 @@ import { NewsItem } from "../../types/types";
 import { durationFromPostingTime } from "../../utils/utils";
 
 import styles from "./NewsList.module.less";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export function NewsList({
   newsItems,
@@ -19,23 +20,29 @@ export function NewsList({
   newsItems: NewsItem[];
   loading: boolean;
 }) {
+  const { width } = useWindowSize();
+
   return (
     <Box className={styles.root}>
       {loading ? (
-        <CircularProgress />
+        <Box className={styles.loading}>
+          <CircularProgress />
+        </Box>
       ) : (
-        <List>
+        <List className={styles.list}>
           {newsItems.map((item) => (
             <Link to={`/${item.id}`} key={item.id} className={styles.link}>
               <ListItem button className={styles.listItem}>
                 <ListItemText
                   primary={item.title}
                   secondary={
-                    <Typography variant="caption">{`${item.score} points by ${
-                      item.by
-                    } ${durationFromPostingTime(item.time * 1000)} | ${
-                      item.descendants
-                    } comments`}</Typography>
+                    <Typography variant="caption" className={styles.meta}>
+                      {`${item.score} points by ${
+                        item.by
+                      } ${durationFromPostingTime(item.time * 1000)} | ${
+                        item.descendants
+                      } comments`}
+                    </Typography>
                   }
                 />
               </ListItem>

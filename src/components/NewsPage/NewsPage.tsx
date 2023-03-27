@@ -10,7 +10,7 @@ import { NewsItem } from "../../types/types";
 import { NewsList } from "../NewsList/NewsList";
 import useThrottle from "../../hooks/useThrottle";
 
-import styles from "./NewsPAge.module.less";
+import styles from "./NewsPage.module.less";
 
 function NewsPage() {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
@@ -41,11 +41,14 @@ function NewsPage() {
 
   return (
     <Container maxWidth="md" className={styles.container}>
-      <Typography variant="h1" className={styles.title}>
+      <Typography variant="h2" className={styles.title}>
         Hacker News
       </Typography>
 
-      <Button onClick={onRefreshNewsClick}>Refresh news</Button>
+      <Button onClick={onRefreshNewsClick} className={styles.refreshButton}>
+        Refresh news
+      </Button>
+
       {loading ? (
         <div className={styles.loading}>
           <CircularProgress />

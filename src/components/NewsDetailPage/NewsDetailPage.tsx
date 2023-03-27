@@ -51,11 +51,19 @@ function NewsDetailPage() {
 
   return (
     <Container maxWidth="md" className={styles.container}>
-      <Button variant="contained" onClick={onBackButtonClick}>
+      <Button
+        className={styles.backButton}
+        variant="contained"
+        onClick={onBackButtonClick}
+      >
         Back to all news
       </Button>
 
-      <Button variant="contained" onClick={onRefreshCommentsClick}>
+      <Button
+        className={styles.refreshButton}
+        variant="contained"
+        onClick={onRefreshCommentsClick}
+      >
         refresh comments
       </Button>
       {loading ? (
@@ -66,28 +74,28 @@ function NewsDetailPage() {
         </Box>
       ) : newsItem ? (
         <>
-          <Typography variant="h1" className={styles.title}>
-            {newsItem.title}
-          </Typography>
-          <Typography variant="body2" className={styles.meta}>
-            {newsItem.score} points | posted by {newsItem.by}
-          </Typography>
-          <Typography variant="body2" className={styles.meta}>
-            post count: {newsItem.descendants}
-          </Typography>
-          <Typography variant="body2">
-            {durationFromPostingTime(newsItem.time * 1000)}
-          </Typography>
-          <Typography variant="body2">
-            <a href={newsItem.url} target="_blank" rel="noreferrer">
-              {newsItem.url}
-            </a>
-          </Typography>
-          {newsItem.text && (
-            <Typography variant="body1" className={styles.content}>
-              {removeHtmlSymbols(newsItem.text)}
+          <Box className={styles.container}>
+            <Typography variant="h1" className={styles.title}>
+              {newsItem.title}
             </Typography>
-          )}
+            <Typography variant="caption" className={styles.meta}>
+              {`${newsItem.score} points by ${
+                newsItem.by
+              } ${durationFromPostingTime(newsItem.time * 1000)} | ${
+                newsItem.descendants
+              } comments`}
+            </Typography>
+            <Typography variant="caption" className={styles.limk}>
+              <a href={newsItem.url} target="_blank" rel="noreferrer">
+                {newsItem.url}
+              </a>
+            </Typography>
+            {newsItem.text && (
+              <Typography variant="caption" className={styles.content}>
+                {removeHtmlSymbols(newsItem.text)}
+              </Typography>
+            )}
+          </Box>
 
           {newsItem.comments && newsItem.comments.length > 0 && (
             <List>

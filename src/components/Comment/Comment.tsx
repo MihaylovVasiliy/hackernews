@@ -19,7 +19,10 @@ const Comment = ({ comment, level }: CommentProps) => {
   };
 
   return (
-    <Box className={cn(level === 0 ? styles.root : styles.nested)}>
+    <Box
+      className={cn(level === 0 ? styles.root : styles.nested)}
+      key={comment.time}
+    >
       <Box onClick={handleChangeCommentsTreeVisibility}>
         <Typography variant="body2" className={styles.author}>
           by : {comment.by} id: {comment.id} kids: {comment.kids?.join("+")}

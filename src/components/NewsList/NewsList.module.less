@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .loading {
+    margin: 20px 0;
+  }
+
+  .list {
+    width: 100%;
+
+    .link {
+      text-decoration: none;
+
+      .listItem {
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease-in-out;
+
+        &:hover {
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.meta {
+  color: #777;
+  margin-top: 5px;
+}

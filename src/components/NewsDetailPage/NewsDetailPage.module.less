@@ -1,0 +1,75 @@
+@import "../../constants/variables.less";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  .backButton,
+  .refreshButton {
+    margin-right: 16px;
+    padding: 8px 16px;
+    background-color: @background-primary;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    @media @mobile {
+      &:first-of-type {
+        margin-bottom: 10px;
+      }
+    }
+
+    &:hover {
+      background-color: darken(@background-primary, 5%);
+    }
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .meta {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #99aab5;
+  }
+
+  .content {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #dcddde;
+
+    a {
+      color: #7289da;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .commentList {
+    margin-top: 20px;
+
+    .MuiListItem-root {
+      padding: 0px;
+
+      .MuiBox-root {
+        padding: 10px 0;
+      }
+    }
+  }
+}
