@@ -1,13 +1,13 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { NewsComment, NewsItem } from "../types/types";
 
-export async function getTopStories(): Promise<number[]> {
+export async function getTop100Stories(): Promise<number[]> {
   const response = await fetch(
     "https://hacker-news.firebaseio.com/v0/newstories.json"
   );
   const storyIds = await response.json();
 
-  return storyIds.slice(100, 150);
+  return storyIds.slice(0, 100);
 }
 
 export async function getNewsItem({id, hasToFetchComments}: {id: number, hasToFetchComments: boolean}): Promise<NewsItem> {

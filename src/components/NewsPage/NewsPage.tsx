@@ -5,7 +5,7 @@ import {
   CircularProgress,
   Button,
 } from "@material-ui/core";
-import { getNewsItem, getTopStories } from "../../utils/utils";
+import { getNewsItem, getTop100Stories } from "../../utils/utils";
 import { NewsItem } from "../../types/types";
 import { NewsList } from "../NewsList/NewsList";
 import useThrottle from "../../hooks/useThrottle";
@@ -26,7 +26,7 @@ function NewsPage() {
     setLoading(true);
 
     async function fetchTopStories() {
-      const topStoryIds = await getTopStories();
+      const topStoryIds = await getTop100Stories();
       const newsItems = await Promise.all(
         topStoryIds.map((storyId) =>
           getNewsItem({ id: storyId, hasToFetchComments: false })
