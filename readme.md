@@ -29,7 +29,7 @@ yarn OR yarn install OR npm install
 > Note: App uses, ` Vite ` tooling, for start the project after modules is installed, you should type
 
 ```sh
-vite dev
+yarn dev
 ```
 
 Verify the deployment by navigating to your server address in
